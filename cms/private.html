@@ -11,13 +11,56 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="bg-[#FFF5E0]">
+    <!-- NAVBAR -->
+    <nav class="
+                mb-2 
+                font-serif[Poppins] 
+                font-bold 
+                text-xl 
+                text-black 
+                px-7 
+                py-2 
+                flex 
+                justify-between
+                border-b-2 
+                border-black
+                ">
+        <div>
+            <button class="mr-6 text-red-700">Unikloh</button>
+            <!-- <button class="mr-3 text-slate-500">Male</button>
+                <button class="mr-3 text-slate-500">Female</button>
+                <button class="mr-3 text-slate-500">Child</button>
+                <button class="mr-3 text-slate-500">Baby</button> -->
+            <!-- <input type="text" id="" placeholder="Search . . ." class="rounded p-1"> -->
+            <button type="submit" class="ml-2 mr-5"><i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- SORT -->
+            <button type="btn" class="mr-2">Sort</button>
+            <!-- END SORT -->
+            <!-- FILTER -->
+            <select class="form-control mr-2 bg-[#FFF5E0]" aria-describedby="clear-addon">
+                <option selected disabled>Filter</option>
+                <option>A-Z</option>
+                <option>Z-A</option>
+            </select>
+            <!-- END FILTER -->
+        </div>
+        <!-- SEARCH -->
+        <div>
+            <button><i class="fa-regular fa-user mr-3"></i></button>
+            <button><i class="fa-solid fa-cart-shopping mr-3"></i></button>
+            <button class="ml-auto text-lg">Logout</button>
+        </div>
+        <!--END SEARCH -->
+    </nav>
+    <!-- END NAVBAR -->
     <!-- FORM LOGIN -->
     <div
         class="card w-96 flex justify-center bg-base-100 shadow-xl opacity-81 rounded image-full bg-[url('https://akcdn.detik.net.id/community/media/visual/2022/10/05/uniqlo-flannel-2.jpeg?w=5969')]">
         <form action="" method="" class="my-10 space-y-4">
             <div class="text-center mb-10">
-                <h1 class="text-white font-bold text-2xl">Login To Unikloh</h1>
+                <h1 class="text-white font-bold text-2xl">Login</h1>
             </div>
             <div class="w-3/4 mx-auto">
                 <div class="my-3">
@@ -34,13 +77,13 @@
                 </div>
                 <div class="mt-8">
                     <center>
-                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-red-400"
+                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-[#C1A36F]"
                             type="submit">Login</button>
                     </center>
                 </div>
                 <div>
                     <center>
-                        <a href=""><button class="bg-[#E1C78F] text-white rounded p-2 mt-5">
+                        <a href=""><button class="bg-[#E1C78F] text-white rounded p-2 mt-5 hover:bg-[#C1A36F]">
                                 Make New Account
                             </button>
                         </a>
@@ -51,12 +94,12 @@
     </div>
     <!-- END FORM LOGIN -->
     <br>
-    <!-- FORM REGISTER -->
+    <!-- FORM ADD USER -->
     <div
         class="card w-96 flex justify-center bg-base-100 shadow-xl opacity-81 rounded image-full bg-[url('https://akcdn.detik.net.id/community/media/visual/2022/10/05/uniqlo-flannel-2.jpeg?w=5969')]">
         <form action="" method="" class="my-10 space-y-4">
             <div class="mb-10 text-center">
-                <h1 class="text-white font-bold text-2xl">Register To Unikloh</h1>
+                <h1 class="text-white font-bold text-2xl">ADD USER</h1>
             </div>
             <div class="w-3/4 mx-auto">
                 <div class="my-3">
@@ -80,13 +123,13 @@
                     <input type="text" id="" name="" value="" class="rounded px-3 py-2 w-full">
                     <div class="mt-8">
                         <center>
-                            <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-red-400"
+                            <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-[#C1A36F]"
                                 type="submit">Login</button>
                         </center>
                     </div>
                     <div class="mt-5">
                         <center>
-                            <a href=""><button class="bg-[#E1C78F] text-white rounded p-2">
+                            <a href=""><button class="bg-[#E1C78F] hover:bg-[#C1A36F] text-white rounded p-2">
                                     Make New Account
                                 </button>
                             </a>
@@ -96,7 +139,7 @@
             </div>
         </form>
     </div>
-    <!-- END FORM REGISTER -->
+    <!-- END FORM ADD USER -->
     <br>
     <!-- FORM ADD PRODUCT -->
     <div class="card w-96 flex justify-center bg-base-100 shadow-xl rounded opacity-81 image-full bg-[#739072]">
@@ -127,7 +170,7 @@
                 </div>
                 <div class="mt-8">
                     <center>
-                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-red-400 px-10 py-2"
+                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-[#C1A36F] px-10 py-2"
                             type="submit">Add
                             Product</button>
                     </center>
@@ -137,8 +180,72 @@
     </div>
     <!-- END FORM ADD PRODUCT -->
     <br>
-    <!-- FROM ADD CATEGORY -->
+    <!-- FORM EDIT PRODUCT -->
     <div class="card w-96 flex justify-center bg-base-100 shadow-xl rounded opacity-81 image-full bg-[#739072]">
+        <form action="" method="" class="my-10 space-y-4">
+            <div class="mb-10 text-center">
+                <h1 class="text-white font-bold text-2xl">Form Edit Product</h1>
+            </div>
+            <div class="mx-auto">
+                <div class="my-3">
+                    <label for="" class="text-white font-bold">Name</label><br>
+                    <input type="text" id="" name="" value="" class="rounded px-4 py-2"><br>
+                </div>
+                <div class="my-3">
+                    <label for="" class="text-white font-bold">Description</label><br>
+                    <input type="text" id="" name="" value="" class="rounded px-4 py-2"><br>
+                </div>
+                <div class="my-3">
+                    <label for="" class="text-white font-bold">Price</label><br>
+                    <input type="number" id="" name="" value="" class="rounded px-4 py-2"><br>
+                </div>
+                <div class="my-3">
+                    <label for="" class="text-white font-bold">Stock</label><br>
+                    <input type="number" id="" name="" value="" class="rounded px-4 py-2"><br>
+                </div>
+                <div class="my-3">
+                    <label for="" class="text-white font-bold">Image Url</label><br>
+                    <input type="text" id="" name="" value="" class="rounded px-4 py-2"><br>
+                </div>
+                <div class="mt-8">
+                    <center>
+                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-[#C1A36F] px-10 py-2"
+                            type="submit">Update
+                            Product</button>
+                    </center>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- END FORM EDIT PRODUCT -->
+    <br>
+    <!-- FORM UPLOAD IMAGE URL -->
+    <div class="card w-96 flex justify-center bg-base-100 shadow-xl rounded opacity-81 image-full bg-[#739072]">
+        <figure><img src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461914/sub/goods_461914_sub14.jpg?"
+                alt="T-shirt Oversize" class="rounded-t-lg h-full" /></figure>
+        <div class=" my-5 ml-10">
+            <h1 class="card-title font-bold text-sm text-white">
+                AIRsim Katun T-shirt Oversize (Lengan Half)
+            </h1>
+            <div class="badge badge-outline font-bold text-sm text-white">Price : Rp100.000</div>
+            <div class="badge badge-outline font-bold text-sm text-white">Stock : 50</div>
+        </div>
+        <div class="card-body m-3">
+            <div class="flex justify-between mb-1">
+                <form action="" method="" class="my-10 space-y-4">
+                    <center>
+                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-[#C1A36F] px-10 py-2 ml-5"
+                            type="submit">Upload
+                            Image</button>
+                    </center>
+            </div>
+        </div>
+        </form>
+    </div>
+    <!-- END FORM UPLOAD IMAGE URL -->
+    <br>
+    <!-- FROM ADD CATEGORY -->
+    <div class="card w-96 flex justify-center bg-base-100 shadow-xl rounded opacity-81 image-full bg-[#DE834D]">
         <form action="" method="" class="my-10 space-y-4">
             <div class="mb-10 text-center">
                 <h1 class="text-white font-bold text-2xl">Form Add Category</h1>
@@ -150,7 +257,7 @@
                 </div>
                 <div class="mt-8">
                     <center>
-                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-red-400 px-10 py-2"
+                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-[#C1A36F] px-10 py-2"
                             type="submit">Add
                             Category</button>
                     </center>
@@ -160,64 +267,87 @@
     </div>
     <!-- END FROM ADD CATEGORY -->
     <br>
+    <!-- FROM EDIT CATEGORY -->
+    <div class="card w-96 flex justify-center bg-base-100 shadow-xl rounded opacity-81 image-full bg-[#DE834D]">
+        <form action="" method="" class="my-10 space-y-4">
+            <div class="mb-10 text-center">
+                <h1 class="text-white font-bold text-2xl">Form Edit Category</h1>
+            </div>
+            <div class="mx-auto">
+                <div class="my-3">
+                    <label for="" class="text-white font-bold">Name</label><br>
+                    <input type="text" id="" name="" value="" class="rounded px-4 py-2"><br>
+                </div>
+                <div class="mt-8">
+                    <center>
+                        <button class="bg-[#E1C78F] text-white p-2 rounded-lg hover:bg-[#C1A36F] px-10 py-2"
+                            type="submit">Update
+                            Category</button>
+                    </center>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- END FROM EDIT CATEGORY -->
+    <br>
     <!-- TABLE PRODUCT -->
     <div class="overflow-x-auto">
         <table class="table">
             <thead class="bg-slate-400">
-                <tr class="py-1">
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Stock</th>
-                    <th>Image Url</th>
-                    <th>Action</th>
+                <tr>
+                    <th class="border">No.</th>
+                    <th class="border">Name</th>
+                    <th class="border">Description</th>
+                    <th class="border">Price</th>
+                    <th class="border">Stock</th>
+                    <th class="border">Image Url</th>
+                    <th class="border">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>T-Shirt Oversize</td>
-                    <td>T-Shirt Oversized Unisex</td>
-                    <td>249000</td>
-                    <td>40</td>
-                    <td>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMc0PAnI4OIJlwASBmzIrc_kP4b6MTDEZXMg&usqp=CAU"
+                    <td class="border">1</td>
+                    <td class="border">T-Shirt Oversize</td>
+                    <td class="border">T-Shirt Oversized Unisex</td>
+                    <td class="border">249000</td>
+                    <td class="border">40</td>
+                    <td class="border">
+                        <img src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461914/sub/goods_461914_sub14.jpg?"
                             alt="">
                     </td>
-                    <td>
+                    <td class="border">
                         <a href=""><button
                                 class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2">See
                                 Detail</button></a>
                     </td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td>T-Shirt Oversize</td>
-                    <td>T-Shirt Oversized Unisex</td>
-                    <td>249000</td>
-                    <td>40</td>
-                    <td>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMc0PAnI4OIJlwASBmzIrc_kP4b6MTDEZXMg&usqp=CAU"
+                    <td class="border">2</td>
+                    <td class="border">T-Shirt Oversize</td>
+                    <td class="border">T-Shirt Oversized Unisex</td>
+                    <td class="border">249000</td>
+                    <td class="border">40</td>
+                    <td class="border">
+                        <img src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461914/sub/goods_461914_sub14.jpg?"
                             alt="">
                     </td>
-                    <td>
+                    <td class="border">
                         <a href=""><button
                                 class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2">See
                                 Detail</button></a>
                     </td>
                 </tr>
                 <tr>
-                    <td>3</td>
-                    <td>T-Shirt Oversize</td>
-                    <td>T-Shirt Oversized Unisex</td>
-                    <td>249000</td>
-                    <td>40</td>
-                    <td>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMc0PAnI4OIJlwASBmzIrc_kP4b6MTDEZXMg&usqp=CAU"
+                    <td class="border">3</td>
+                    <td class="border">T-Shirt Oversize</td>
+                    <td class="border">T-Shirt Oversized Unisex</td>
+                    <td class="border">249000</td>
+                    <td class="border">40</td>
+                    <td class="border">
+                        <img src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461914/sub/goods_461914_sub14.jpg?"
                             alt="">
                     </td>
-                    <td>
+                    <td class="border">
                         <a href=""><button
                                 class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2">See
                                 Detail</button></a>
@@ -227,6 +357,49 @@
         </table>
     </div>
     <!-- END TABLE PRODUCT -->
+    <br>
+    <!-- TABLE CATEGORY -->
+
+    <div class="overflow-x-auto">
+        <table class="table">
+            <thead class="bg-slate-400">
+                <tr>
+                    <th class="border">No.</th>
+                    <th class="border">Name</th>
+                    <th class="border">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border">1</td>
+                    <td class="border">T-Shirt Oversize</td>
+                    <td class="border">
+                        <a href=""><button class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px- py-1">See
+                                Detail</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border">2</td>
+                    <td class="border">T-Shirt Oversize</td>
+                    <td class="border">
+                        <a href=""><button
+                                class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-3 py-1">See
+                                Detail</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border">3</td>
+                    <td class="border">T-Shirt Oversize</td>
+                    <td class="border">
+                        <a href=""><button
+                                class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-3 py-1">See
+                                Detail</button></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- END TABLE CATEGORY-->
 </body>
 
 </html>
