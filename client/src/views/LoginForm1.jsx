@@ -1,7 +1,8 @@
 const LoginForm1 = ({ showLogin }) => {
   return (
     <>
-      {showLogin && (
+      {/* {showLogin && ( */}
+      <div className="flex flex-col items-center mt-[3%]">
         <div className="card w-96 flex justify-center bg-base-100 shadow-inner rounded bg-[#f5ebd6]">
           <form action="" method="" className=" my-10 space-y-4 ">
             <div className=" text-center mb-10">
@@ -68,7 +69,8 @@ const LoginForm1 = ({ showLogin }) => {
             </div>
           </form>
         </div>
-      )}
+      </div>
+      {/* )} */}
     </>
   );
 };

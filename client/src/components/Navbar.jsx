@@ -1,18 +1,21 @@
 import { BiSolidCart } from "react-icons/bi";
 import { BiSolidUser } from "react-icons/bi";
 import { BiSearchAlt } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="mb-2 font-sans font-bold text-xl text-black px-7 py-2 flex justify-between border-b-2 border-black bg-[#ccc2ae]">
-      <div className="flex space-x-4">
-        <button className="text-red-700">
+    <nav className="font-sans font-bold text-xl text-black px-7 py-2 flex justify-between border-b-2 border-black bg-[#ccc2ae]">
+      <div className="flex gap-5 items-center">
+        <Link className="text-red-700">
+          {/* <button > */}
           Unik<span className="text-slate-200 text-mono">loh</span>
-        </button>
+          {/* </button> */}
+        </Link>
         {/* Add more buttons or links here */}
         {/* <!-- SORT --> */}
         <button type="btn" className="">
-          Sort
+          Filter
         </button>
         {/* <!-- END SORT --> */}
         {/* <!-- FILTER --> */}
@@ -21,7 +24,7 @@ const Navbar = () => {
           aria-describedby="clear-addon"
         >
           <option selected disabled>
-            Filter
+            Sort
           </option>
           <option>A-Z</option>
           <option>Z-A</option>

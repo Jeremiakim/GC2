@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../../../server/src/components/Navbar";
-
+import Navbar from "../components/Navbar";
 const Parent = () => {
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <div className="bg-[#FFF5E0]">
+        <Navbar />
+        <Outlet />
+      </div>
     </>
   );
 };

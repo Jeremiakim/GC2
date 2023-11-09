@@ -1,7 +1,9 @@
 const Register = ({ showRegister }) => {
   return (
     <>
-      {showRegister && (
+      {/* {showRegister && ( */}
+      {/* <center> */}
+      <div className="flex flex-col items-center mt-[3%]">
         <div className="card w-96 flex justify-center bg-base-100 shadow-inner rounded bg-[#f5ebd6]">
           <form action="" method="" className="my-10 space-y-4">
             <div className="mb-10 text-center">
@@ -92,7 +94,9 @@ const Register = ({ showRegister }) => {
             </div>
           </form>
         </div>
-      )}
+      </div>
+      {/* </center> */}
+      {/* )} */}
     </>
   );
 };
