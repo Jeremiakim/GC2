@@ -5,8 +5,13 @@ const TableCategory = () => {
   // const { name } = category;
   const [categories, setCategories] = useState([]);
   const fetchCategories = async () => {
+    const access_token = localStorage.getItem("access_token");
     try {
-      const { data } = await axios.get("http://localhost:3000/category");
+      const { data } = await axios.get("http://localhost:3000/category", {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
       // console.log(data.category, "<<<< data categry ");
       setCategories(data.category);
     } catch (error) {

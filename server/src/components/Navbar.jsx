@@ -47,13 +47,18 @@ const Navbar = () => {
           </button>
         </Link>
         <Link to="/product/add">
-          <button className=" hover:text-red-900 text-lg">Add Product</button>
+          <button className=" hover:text-red-900 text-base">Add Product</button>
+        </Link>
+        <Link to="/category/add">
+          <button className=" hover:text-red-900 text-base">
+            Add Category
+          </button>
         </Link>
         <Link to="/category">
-          <button className=" hover:text-red-900 text-lg">Category</button>
+          <button className=" hover:text-red-900 text-base">Category</button>
         </Link>
         <Link to="/login">
-          <button className="ml-auto text-lg  hover:text-red-900">
+          <button className="ml-auto text-base  hover:text-red-900">
             Logout
           </button>
         </Link>

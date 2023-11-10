@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 
 import LoginForm2 from "../views/LoginForm2";
 import Parent from "../views/Parent";
@@ -13,15 +13,21 @@ import Home from "../views/Home";
 
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <LoginForm2 />,
+  },
+  {
     element: <Parent />,
+    loader: async () => {
+      if (!localStorage.access_token) {
+        return redirect("/login");
+      }
+      return null;
+    },
     children: [
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <LoginForm2 />,
       },
       {
         path: "/addUser",

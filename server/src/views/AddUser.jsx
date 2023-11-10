@@ -1,10 +1,50 @@
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const AddUser = () => {
+  const [inputAddUser, setInputAddUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
+    address: "",
+  });
+  const navigate = useNavigate();
+  const onChange = (e) => {
+    // console.log(e.target.name, 13);
+    // console.log(e.target.value, 14);
+    setInputAddUser({
+      ...inputAddUser,
+      [e.target.name]: e.target.value,
+    });
+  };
+  // console.log(inputAddUser);
+  const onSubmitAddUser = async (e) => {
+    e.preventDefault();
+    try {
+      const access_token = localStorage.getItem("access_token");
+      console.log(access_token);
+      await axios.post("http://localhost:3000/addUser", inputAddUser, {
+        headers: {
+          authorization: `Bearer ${access_token}`,
+        },
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <>
       <center>
         <div className="bg-[#FFF5E0]">
           <div className="card w-96 flex justify-center bg-base-100 shadow-inner rounded-lg bg-[#f5ebd6]">
-            <form action="" method="" className="my-10 space-y-4">
+            <form
+              onSubmit={onSubmitAddUser}
+              className="my-10 space-y-4"
+              autoComplete="off"
+            >
               <div className="mb-10 text-center">
                 <h1 className="text-[#8e3000] font-bold text-2xl">
                   Form Add User
@@ -18,8 +58,9 @@ const AddUser = () => {
                   <input
                     type="text"
                     id=""
-                    name=""
-                    value=""
+                    name="username"
+                    value={inputAddUser.username}
+                    onChange={onChange}
                     className="rounded px-3 py-2 w-full"
                   />
                 </div>
@@ -30,8 +71,9 @@ const AddUser = () => {
                   <input
                     type="text"
                     id=""
-                    name=""
-                    value=""
+                    name="email"
+                    value={inputAddUser.email}
+                    onChange={onChange}
                     className="rounded px-3 py-2 w-full"
                   />
                 </div>
@@ -40,10 +82,11 @@ const AddUser = () => {
                     Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     id=""
-                    name=""
-                    value=""
+                    name="password"
+                    value={inputAddUser.password}
+                    onChange={onChange}
                     className="rounded px-3 py-2 w-full"
                   />
                 </div>
@@ -54,8 +97,9 @@ const AddUser = () => {
                   <input
                     type="text"
                     id=""
-                    name=""
-                    value=""
+                    name="phoneNumber"
+                    value={inputAddUser.phoneNumber}
+                    onChange={onChange}
                     className="rounded px-3 py-2 w-full"
                   />
                 </div>
@@ -66,8 +110,9 @@ const AddUser = () => {
                   <input
                     type="text"
                     id=""
-                    name=""
-                    value=""
+                    name="address"
+                    value={inputAddUser.address}
+                    onChange={onChange}
                     className="rounded px-3 py-2 w-full"
                   />
                   <div className="mt-8">
