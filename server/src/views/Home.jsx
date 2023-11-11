@@ -12,9 +12,7 @@ const Home = () => {
           Authorization: `Bearer ${access_token}`,
         },
       });
-      // console.log(data);
       setProducts(data.products);
-      // console.log(data, 10);
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +21,6 @@ const Home = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
-  console.log(products);
   return (
     <>
       {/* <p>hallo</p> */}

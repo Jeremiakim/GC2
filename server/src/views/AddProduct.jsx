@@ -55,7 +55,7 @@ const AddProduct = () => {
           authorization: `Bearer ${access_token}`,
         },
       });
-      console.log(data, 56);
+      // console.log(data, 56);
     } catch (error) {
       console.log(error.response);
     }

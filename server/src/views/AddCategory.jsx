@@ -1,9 +1,31 @@
 const AddCategory = () => {
+  const [inputAddCategory, setInputAddCategory] = useState({
+    name: "",
+  });
+  const access_token = localStorage.getItem("access_token");
+  const onChange = async (e) => {
+    setInputAddCategory({
+      ...inputAddCategory,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const onSubmitCategory = async (e) => {
+    e.preventDefault();
+    try {
+      let data = await axios.post(`${urlName}/category`, inputAddCategory, {
+        headers: {
+          authorization: `Bearer ${access_token}`,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <center>
         <div className="card w-96 flex justify-center bg-base-100 shadow-inner rounded bg-[#dea62f]">
-          <form action="" method="" className=" my-10 space-y-4 ">
+          <form onSubmit={onSubmitCategory} className=" my-10 space-y-4 ">
             <div className=" text-center mb-10">
               <h1 className="text-white font-bold text-2xl">
                 Form Add Category
@@ -18,7 +40,8 @@ const AddCategory = () => {
                   type="text"
                   id=""
                   name=""
-                  value=""
+                  value={inputAddCategory.name}
+                  onChange={onChange}
                   className="rounded px-3 py-1"
                 />
               </div>

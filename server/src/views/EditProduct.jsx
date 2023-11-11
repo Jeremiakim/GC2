@@ -7,13 +7,7 @@ import { urlName } from "../static";
 const EditProduct = () => {
   const { productId } = useParams();
   const access_token = localStorage.getItem("access_token");
-  // const [inputEditProduct, setInputEditProduct] = useState("");
-  // const [name, setName] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [price, setPrice] = useState("");
-  // const [stock, setStock] = useState("");
-  // const [imgUrl, setImgUrl] = useState("");
-  // const [categoryId, setCategoryId] = useState("");
+
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState({
     name: "",
@@ -31,7 +25,6 @@ const EditProduct = () => {
           Authorization: `Bearer ${access_token}`,
         },
       });
-      // console.log(data.findProductById, 27);
       setProducts({
         name: data.findProductById.name,
         description: data.findProductById.description,
@@ -40,12 +33,6 @@ const EditProduct = () => {
         imgUrl: data.findProductById.imgUrl,
         categoryId: data.findProductById.categoryId,
       });
-      // setName(data.findProductById.name);
-      // setDescription(data.findProductById.description);
-      // setPrice(data.findProductById.price);
-      // setStock(data.findProductById.stock);
-      // setImgUrl(data.findProductById.imgUrl);
-      // setCategoryId(data.findProductById.categoryId);
     } catch (error) {
       setError(error);
     }
@@ -57,7 +44,6 @@ const EditProduct = () => {
           Authorization: `Bearer ${access_token}`,
         },
       });
-      // console.log(data.data.category, 46);
       setCategories(data.data.category);
     } catch (error) {
       console.log(error);
@@ -67,19 +53,14 @@ const EditProduct = () => {
     fetchCategories();
     fetchProductById();
   }, []);
-  // console.log(categories, 55);
   const onChange = async (e) => {
-    // console.log(e, "inii");
     setProducts({
       ...products,
       [e.target.name]: e.target.value,
     });
-    // console.log(e.target.name, e.target.value, 37);
   };
-  // console.log(inputEditProduct, 66);
   const onSubmitEditProduct = async (e) => {
     e.preventDefault();
-    // console.log("Sending data:", { product: inputAddProduct });
     try {
       let access_token = localStorage.getItem("access_token");
       let data = await axios.put(`${urlName}/product/${productId}`, products, {
@@ -87,7 +68,6 @@ const EditProduct = () => {
           authorization: `Bearer ${access_token}`,
         },
       });
-      console.log(data, 56);
     } catch (error) {
       console.log(error.response);
     }
