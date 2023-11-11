@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CustomButton from "../components/CustomButton";
+import { urlName } from "../static";
 
 const EditProduct = () => {
   const { productId } = useParams();
@@ -25,14 +26,11 @@ const EditProduct = () => {
   const navigate = useNavigate();
   const fetchProductById = async () => {
     try {
-      let { data } = await axios.get(
-        `http://localhost:3000/product/${productId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${access_token}`,
-          },
-        }
-      );
+      let { data } = await axios.get(`${urlName}/product/${productId}`, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
       // console.log(data.findProductById, 27);
       setProducts({
         name: data.findProductById.name,
@@ -54,7 +52,7 @@ const EditProduct = () => {
   };
   const fetchCategories = async () => {
     try {
-      const data = await axios.get("http://localhost:3000/category", {
+      const data = await axios.get(`${urlName}/category`, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },
@@ -84,15 +82,11 @@ const EditProduct = () => {
     // console.log("Sending data:", { product: inputAddProduct });
     try {
       let access_token = localStorage.getItem("access_token");
-      let data = await axios.put(
-        `http://localhost:3000/product/${productId}`,
-        products,
-        {
-          headers: {
-            authorization: `Bearer ${access_token}`,
-          },
-        }
-      );
+      let data = await axios.put(`${urlName}/product/${productId}`, products, {
+        headers: {
+          authorization: `Bearer ${access_token}`,
+        },
+      });
       console.log(data, 56);
     } catch (error) {
       console.log(error.response);

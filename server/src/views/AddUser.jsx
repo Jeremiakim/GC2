@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { urlName } from "../static";
 
 const AddUser = () => {
   const [inputAddUser, setInputAddUser] = useState({
@@ -22,7 +23,7 @@ const AddUser = () => {
     try {
       const access_token = localStorage.getItem("access_token");
       // console.log(access_token);
-      await axios.post("http://localhost:3000/addUser", inputAddUser, {
+      await axios.post(`${urlName}/addUser`, inputAddUser, {
         headers: {
           authorization: `Bearer ${access_token}`,
         },

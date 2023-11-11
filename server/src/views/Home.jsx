@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TableProduct from "./TableProduct";
+import { urlName } from "../static";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
     try {
       const access_token = localStorage.getItem("access_token");
-      const { data } = await axios.get("http://localhost:3000/product", {
+      const { data } = await axios.get(`${urlName}/product`, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },

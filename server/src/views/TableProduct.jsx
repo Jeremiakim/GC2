@@ -1,12 +1,13 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { urlName } from "../static";
 
 const TableProduct = ({ product, index, fetchProducts }) => {
   const { id, name, description, price, stock, imgUrl } = product;
   const access_token = localStorage.getItem("access_token");
 
   const deleteProduct = async () => {
-    await axios.delete(`http://localhost:3000/product/${id}`, {
+    await axios.delete(`${urlName}/product/${id}`, {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },

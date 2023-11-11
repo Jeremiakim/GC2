@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { urlName } from "../static";
 
 const TableCategory = () => {
   // const { name } = category;
@@ -7,7 +8,7 @@ const TableCategory = () => {
   const fetchCategories = async () => {
     const access_token = localStorage.getItem("access_token");
     try {
-      const { data } = await axios.get("http://localhost:3000/category", {
+      const { data } = await axios.get(`${urlName}/category`, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },

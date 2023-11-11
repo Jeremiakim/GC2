@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { urlName } from "../static";
 
 const LoginForm2 = () => {
   const [inputLogin, setInputLogin] = useState({
@@ -17,10 +18,7 @@ const LoginForm2 = () => {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:3000/login",
-        inputLogin
-      );
+      const response = await axios.post(`${urlName}/login`, inputLogin);
       const access_token = response.data.access_token;
       localStorage.setItem("access_token", access_token);
       navigate("/");

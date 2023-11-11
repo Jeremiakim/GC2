@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../components/CustomButton";
 import Form from "../components/Form";
+import { urlName } from "../static";
 
 const AddProduct = () => {
   const [categories, setCategories] = useState([]);
@@ -17,7 +18,7 @@ const AddProduct = () => {
   const access_token = localStorage.getItem("access_token");
   const fetchCategories = async () => {
     try {
-      const data = await axios.get("http://localhost:3000/category", {
+      const data = await axios.get(`${urlName}/category`, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },
@@ -49,15 +50,11 @@ const AddProduct = () => {
     // console.log("Sending data:", { product: inputAddProduct });
     try {
       let access_token = localStorage.getItem("access_token");
-      let data = await axios.post(
-        "http://localhost:3000/product",
-        inputAddProduct,
-        {
-          headers: {
-            authorization: `Bearer ${access_token}`,
-          },
-        }
-      );
+      let data = await axios.post(`${urlName}/product`, inputAddProduct, {
+        headers: {
+          authorization: `Bearer ${access_token}`,
+        },
+      });
       console.log(data, 56);
     } catch (error) {
       console.log(error.response);
