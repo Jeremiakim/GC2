@@ -1,1 +1,1 @@
-export const urlName = "https://jkzu.online";
+export const urlName = "https://server.jkzu.online";
