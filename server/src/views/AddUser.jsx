@@ -12,19 +12,16 @@ const AddUser = () => {
   });
   const navigate = useNavigate();
   const onChange = (e) => {
-    // console.log(e.target.name, 13);
-    // console.log(e.target.value, 14);
     setInputAddUser({
       ...inputAddUser,
       [e.target.name]: e.target.value,
     });
   };
-  // console.log(inputAddUser);
   const onSubmitAddUser = async (e) => {
     e.preventDefault();
     try {
       const access_token = localStorage.getItem("access_token");
-      console.log(access_token);
+      // console.log(access_token);
       await axios.post("http://localhost:3000/addUser", inputAddUser, {
         headers: {
           authorization: `Bearer ${access_token}`,

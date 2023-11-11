@@ -4,6 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const [categories, setCategories] = useState([]);
+  const [inputAddProduct, setInputAddProduct] = useState({
+    name: "",
+    description: "",
+    price: "",
+    stock: "",
+    imgUrl: "",
+    categoryId: "",
+  });
   const access_token = localStorage.getItem("access_token");
   const fetchCategories = async () => {
     try {
@@ -13,6 +21,7 @@ const AddProduct = () => {
         },
       });
       // data.data.category
+      setCategories(data.data.category);
     } catch (error) {
       console.log(error);
     }
@@ -20,33 +29,34 @@ const AddProduct = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
-  console.log(fetchCategories(), 23);
-  const [inputAddProduct, setInputAddProduct] = useState({
-    name: "",
-    description: "",
-    price: "",
-    stock: "",
-    imgUrl: "",
-  });
+  // console.log(categories);
+  // console.log(fetchCategories(), 23);
+
   const onChange = async (e) => {
-    // console.log(e, 32);
-    // console.log(e.target.value);
-    // console.log(e.target.name);
+    // console.log(e, "inii");
     setInputAddProduct({
       ...inputAddProduct,
       [e.target.name]: e.target.value,
     });
+    console.log(e.target.name, e.target.value, 37);
   };
-  // console.log(inputAddProduct);
+  console.log(inputAddProduct, 41);
   const navigate = useNavigate();
   const onSubmitAddProduct = async (e) => {
     e.preventDefault();
+    console.log("Sending data:", { product: inputAddProduct });
     try {
-      await axios.post("http://localhost:3000/product", inputAddProduct, {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
-      });
+      let access_token = localStorage.getItem("access_token");
+      let data = await axios.post(
+        "http://localhost:3000/product",
+        inputAddProduct,
+        {
+          headers: {
+            authorization: `Bearer ${access_token}`,
+          },
+        }
+      );
+      console.log(data, 56);
     } catch (error) {
       console.log(error.response);
     }
@@ -138,8 +148,21 @@ const AddProduct = () => {
                   Category
                 </label>
                 <br />
-                <select name="categoryId" id="">
+                <select
+                  name="categoryId"
+                  className="rounded"
+                  value={inputAddProduct.categoryId}
+                  onChange={onChange}
+                >
                   <option value=""></option>
+                  {categories.map((el) => {
+                    // console.log(el.id);
+                    return (
+                      <option key={el.id} value={el.id ? el.id : 0}>
+                        {el.name}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
               <div className="mt-8">

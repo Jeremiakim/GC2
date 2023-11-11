@@ -10,23 +10,12 @@ const Navbar = () => {
             Unik<span className="text-slate-200 text-mono">loh</span>
           </button>
         </Link>
+        <Link to="/addUser">
+          <button className=" hover:text-red-900">
+            <FaUserPlus />
+          </button>
+        </Link>
         {/* Add more buttons or links   here */}
-        {/* <!-- SORT --> */}
-        <button type="btn" className="">
-          Sort
-        </button>
-        {/* <!-- END SORT --> */}
-        {/* <!-- FILTER --> */}
-        <select
-          className="form-control mr-2 bg-[#ccc2ae] "
-          aria-describedby="clear-addon"
-        >
-          <option selected disabled>
-            Filter
-          </option>
-          <option>A-Z</option>
-          <option>Z-A</option>
-        </select>
         {/* <!-- END FILTER --> */}
       </div>
       <div className="flex gap-3 items-center">
@@ -41,11 +30,7 @@ const Navbar = () => {
             <BiSearchAlt />
           </button>
         </div>
-        <Link to="/addUser">
-          <button className=" hover:text-red-900">
-            <FaUserPlus />
-          </button>
-        </Link>
+
         <Link to="/product/add">
           <button className=" hover:text-red-900 text-base">Add Product</button>
         </Link>
