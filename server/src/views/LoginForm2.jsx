@@ -23,7 +23,7 @@ const LoginForm2 = () => {
       localStorage.setItem("access_token", access_token);
       navigate("/");
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error);
     }
   };
   return (
