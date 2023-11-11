@@ -43,7 +43,7 @@ const AddCategory = () => {
                 <input
                   type="text"
                   id=""
-                  name=""
+                  name="name"
                   value={inputAddCategory.name}
                   onChange={onChange}
                   className="rounded px-3 py-1"
