@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import axios from "axios";
+import { urlName } from "../static";
 
 const DetailProduct = () => {
   let [product, setProduct] = useState({});
@@ -8,13 +9,11 @@ const DetailProduct = () => {
   const { productId } = useParams();
   const fetchProduct = async () => {
     try {
-      const { data } = await axios.get(
-        "http://localhost:3000/pub/product/" + productId
-      );
-      // console.log(data.findProductById, 12);
+      const { data } = await axios.get(`${urlName}/pub/product/` + productId);
+
       setProduct(data.findProductById);
     } catch (err) {
-      // console.log(err);
+      console.log(err);
     }
   };
   useEffect(() => {

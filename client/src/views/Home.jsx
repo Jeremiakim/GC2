@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Card1 from "../components/card1";
-import Pagination from "../components/Pagination";
-import Display from "./Display";
+import Card1 from "../components/card1.jsx";
+import Pagination from "../components/Pagination.jsx";
+import Display from "./Display.jsx";
 import axios from "axios";
-
+import { urlName } from "../static.js";
 const Home = () => {
   const [products, setProducts] = useState([]);
   //   console.log(products, 10);
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/pub/product");
+      const { data } = await axios.get(`${urlName}/pub/product`);
       //   console.log(data.data.rows);
       setProducts(data.data.rows);
       // console.log(setProducts(data.data.rows));
