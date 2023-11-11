@@ -32,22 +32,16 @@ const AddProduct = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
-  // console.log(categories);
-  // console.log(fetchCategories(), 23);
 
   const onChange = async (e) => {
-    // console.log(e, "inii");
     setInputAddProduct({
       ...inputAddProduct,
       [e.target.name]: e.target.value,
     });
-    // console.log(e.target.name, e.target.value, 37);
   };
-  // console.log(inputAddProduct, 41);
   const navigate = useNavigate();
   const onSubmitAddProduct = async (e) => {
     e.preventDefault();
-    // console.log("Sending data:", { product: inputAddProduct });
     try {
       let access_token = localStorage.getItem("access_token");
       let data = await axios.post(`${urlName}/product`, inputAddProduct, {
@@ -55,7 +49,6 @@ const AddProduct = () => {
           authorization: `Bearer ${access_token}`,
         },
       });
-      // console.log(data, 56);
     } catch (error) {
       console.log(error.response);
     }

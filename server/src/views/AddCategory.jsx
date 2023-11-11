@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const AddCategory = () => {
   const [inputAddCategory, setInputAddCategory] = useState({
     name: "",
@@ -9,6 +11,7 @@ const AddCategory = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const navigate = useNavigate();
   const onSubmitCategory = async (e) => {
     e.preventDefault();
     try {
@@ -17,6 +20,7 @@ const AddCategory = () => {
           authorization: `Bearer ${access_token}`,
         },
       });
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
