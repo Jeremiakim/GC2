@@ -30,7 +30,12 @@ const Home = () => {
         {products.map((product, index) => {
           // console.log(product, 22);
           return (
-            <TableProduct product={product} index={index} key={product.id} />
+            <TableProduct
+              product={product}
+              index={index}
+              key={product.id}
+              fetchProducts={fetchProducts}
+            />
           );
         })}
       </div>

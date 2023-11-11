@@ -1,5 +1,19 @@
-const TableProduct = ({ product, index }) => {
-  const { name, description, price, stock, imgUrl } = product;
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+const TableProduct = ({ product, index, fetchProducts }) => {
+  const { id, name, description, price, stock, imgUrl } = product;
+  const access_token = localStorage.getItem("access_token");
+
+  const deleteProduct = async () => {
+    await axios.delete(`http://localhost:3000/product/${id}`, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+    fetchProducts();
+  };
+
   return (
     <>
       <div className="overflow-x-auto">
@@ -26,11 +40,19 @@ const TableProduct = ({ product, index }) => {
                 <img src={imgUrl} />
               </td>
               <td className="border">
-                <a href="">
+                <Link to={`/product/${id}/edit`}>
                   <button className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2">
-                    See Detail
+                    Edit
                   </button>
-                </a>
+                </Link>
+              </td>
+              <td className="border">
+                <button
+                  className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2"
+                  onClick={deleteProduct}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           </tbody>

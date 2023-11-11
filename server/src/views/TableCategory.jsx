@@ -39,11 +39,11 @@ const TableCategory = () => {
                   <td className="border">{index}</td>
                   <td className="border">{category.name}</td>
                   <td className="border">
-                    <a href="">
+                    <Link to="">
                       <button className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px- py-1">
-                        See Detail
+                        Edit
                       </button>
-                    </a>
+                    </Link>
                   </td>
                 </tr>
               );
