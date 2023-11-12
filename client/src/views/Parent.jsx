@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 const Parent = () => {
   return (
     <>
-      <div className="bg-[#FFF5E0] h-screen">
+      <div className="bg-[#FFF5E0] h-full">
         <Navbar />
         <Outlet />
       </div>
