@@ -2,6 +2,12 @@ import { FaUserPlus } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const [isLoggedin, setIsLoggedin] = useState(false);
+
+  const logout = () => {
+    localStorage.removeItem("access_token");
+    setIsLoggedin(false);
+  };
   return (
     <nav className="font-sans font-bold text-xl text-black px-7 py-2 flex justify-between border-b-2 border-black bg-[#ccc2ae]">
       <div className="flex gap-5 items-center">
@@ -43,7 +49,10 @@ const Navbar = () => {
           <button className=" hover:text-red-900 text-base">Category</button>
         </Link>
         <Link to="/login">
-          <button className="ml-auto text-base  hover:text-red-900">
+          <button
+            className="ml-auto text-base  hover:text-red-900"
+            onClickCapture={logout}
+          >
             Logout
           </button>
         </Link>
