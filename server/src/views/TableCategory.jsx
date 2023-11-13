@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { urlName } from "../static";
+import { Link } from "react-router-dom";
 
 const TableCategory = () => {
   // const { name } = category;
@@ -37,7 +38,7 @@ const TableCategory = () => {
             {categories.map((category, index) => {
               return (
                 <tr key={category.id}>
-                  <td className="border">{index}</td>
+                  <td className="border">{index + 1}</td>
                   <td className="border">{category.name}</td>
                   <td className="border">
                     <Link to="">

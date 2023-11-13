@@ -25,17 +25,7 @@ const Home = () => {
     <>
       {/* <p>hallo</p> */}
       <div className="bg-[#FFF5E0]">
-        {products.map((product, index) => {
-          // console.log(product, 22);
-          return (
-            <TableProduct
-              product={product}
-              index={index}
-              key={product.id}
-              fetchProducts={fetchProducts}
-            />
-          );
-        })}
+        <TableProduct products={products} fetchProducts={fetchProducts} />
       </div>
     </>
   );

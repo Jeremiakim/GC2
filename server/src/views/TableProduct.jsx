@@ -2,11 +2,10 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { urlName } from "../static";
 
-const TableProduct = ({ product, index, fetchProducts }) => {
-  const { id, name, description, price, stock, imgUrl } = product;
+const TableProduct = ({ products, fetchProducts }) => {
   const access_token = localStorage.getItem("access_token");
 
-  const deleteProduct = async () => {
+  const deleteProduct = async (urlName, id) => {
     await axios.delete(`${urlName}/product/${id}`, {
       headers: {
         Authorization: `Bearer ${access_token}`,
@@ -31,31 +30,41 @@ const TableProduct = ({ product, index, fetchProducts }) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="border">{index}</td>
-              <td className="border">{name}</td>
-              <td className="border">{description}</td>
-              <td className="border">{price}</td>
-              <td className="border">{stock}</td>
-              <td className="border">
-                <img src={imgUrl} />
-              </td>
-              <td className="border">
-                <Link to={`/product/${id}/edit`}>
-                  <button className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2">
-                    Edit
-                  </button>
-                </Link>
-              </td>
-              <td className="border">
-                <button
-                  className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2"
-                  onClick={deleteProduct}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
+            {products.map((el, index) => {
+              // console.log(el, 34);
+              return (
+                <tr>
+                  <td className="border">{index + 1}</td>
+                  <td className="border">{el.name}</td>
+                  <td className="border">{el.description}</td>
+                  <td className="border">{el.price}</td>
+                  <td className="border">{el.stock}</td>
+                  <td className="border">
+                    <img src={el.imgUrl} />
+                  </td>
+                  <td className="border">
+                    <Link to={`/product/${el.id}/edit`}>
+                      <button className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2">
+                        Edit
+                      </button>
+                    </Link>
+                    <button
+                      className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2"
+                      onClick={() => {
+                        deleteProduct(urlName, el.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <Link to={`product/${el.id}/uploadImg`}>
+                      <button className=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-900 px-10 py-2">
+                        Edit Image
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
