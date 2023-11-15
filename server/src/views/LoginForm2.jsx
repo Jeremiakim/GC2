@@ -57,7 +57,7 @@ const LoginForm2 = () => {
                     Password
                   </label>
                   <input
-                    type="password"
+                    type=""
                     name="password"
                     value={inputLogin.password}
                     onChange={onChange}
